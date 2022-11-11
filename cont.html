@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cont.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="area">
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="header">
+      <div id="hello">
+        <h1>Contact</h1>
+      </div>
+      <div class="container">
+        <div class="row1">
+          <h3>Who am i</h3>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+            laborum eveniet quibusdam voluptatibus ducimus sed reprehenderit,
+            nemo aliquid accusamus tempore quae quo et quia, magnam incidunt.
+            Magnam totam cupiditate quo.
+          </p>
+          <h3>Email</h3>
+          <p>namangarg490@gmail.com</p>
+          <h3>Address</h3>
+          <p>Chandigarh , India</p>
+        </div>
+        <div class="row2">
+          <form action="" name="submit-to-google-sheet">
+            <input
+              type="text"
+              name="name"
+              placeholder="YOUR GOOD NAME"
+              required
+            />
+            <input
+              type="text"
+              name="social"
+              placeholder="YOUR SOCIAL HANDLE"
+              required
+            />
+            <input type="text" name="msg" placeholder="ANY MESSAGE" />
+            <input type="submit" id="button" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxWBsvJlcWi1ti8lKuPPkfneTQGh6i7awyGfzuKvULGN3jZy_QFtTgpSNShPAYLiKvV7Q/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+  </body>
+</html>
